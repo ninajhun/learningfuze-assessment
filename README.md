@@ -114,11 +114,69 @@ However, if the same variable is defined in different scopes, there will be no e
     ```    
 
 ### 3. Hoisting of let
-- Just like  var, let declarations are hoisted to the top. Howwver, the let keyword is not initialized. So if you try to use a let variable before declaration, you'll get a Reference Error.
+- Just like  var, let declarations are hoisted to the top. However, the let keyword is not initialized. So if you try to use a let variable before declaration, you'll get a Reference Error.
 
 ```
  console.log(greeting) // Uncaught ReferenceError: greeting is not defined
  let greeting;
+```
+
+## Const
+Variables declared with the const maintain constant values. const declarations share some similarities with let declarations.
+
+### 1. const declarations are block scoped
+Like let declarations, const declarations can only be accessed within the block they were declared.
+
+### 2. const cannot be updated or re-declared
+This means that the value of a variable declared with const remains the same within its scope. It cannot be updated or re-declared. 
+
+Case 1 - Updated: 
+
+    ```
+    const greeting = "say Hi";
+    greeting = "say Hello instead";// error: Assignment to constant variable. 
+    ```
+    
+Case 2 - Redeclared: 
+
+    ```
+    const greeting = "say Hi";
+    const greeting = "say Hello instead";// error: Identifier 'greeting' has already been declared
+    ```
+    
+### 3. Every const declaration must be initialized at the time of declaration and cannot be changed/updated. 
+
+- <i>However, you CAN update the objects/arrays that are assigned to a const variable.</i>
+
+Example 1: Updating an Object's Properties 
+```
+
+    const greeting = {
+        message: "Hello World",
+        times: 4
+        }
+```
+
+This does NOT work:
+``` 
+    greeting = {
+        words: "Hello",
+        number: "five"
+    } // error:  Assignment to constant variable.
+```
+
+This works: 
+```
+ greeting.message: "Hi LFZ"
+```
+
+
+### 4. Hoisting of const
+Just like let, const declarations are hoisted to the top but are not initialized.
+ 
+ ```
+ console.log(greeting) // Uncaught ReferenceError: greeting is not defined
+ const greeting;
 ```
 
 
