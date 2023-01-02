@@ -42,17 +42,18 @@ Var, Let, and Const vary in the following:
 -  Question: Why does `Uncaught ReferenceError: greeting is not defined` occur? 
 
 
-### 2. var variables can be re-declared and updated within its scope 
+### 2. var variables can be reassigned/updated and redeclared within its scope 
+Case 2 - Reassigned:
+  ```
+  var text = "hey hi";
+  text = "say Hello instead";
+  ```
 Case 1 - Redeclared: 
   ``` 
   var text = "hey hi";
   var text = "say Hello instead";
   ```
-Case 2 - Updated:
-  ```
-  var text = "hey hi";
-  text = "say Hello instead";
-  ```
+
   
 ### 3. Hoisting of var
 
@@ -87,8 +88,8 @@ Example:
 ```   
 -  Question: Why does `Uncaught ReferenceError: greeting is not defined` occur? 
 
-### 2. let can be updated but not re-declared within its scope.
-Case 1 - Updated: 
+### 2. let can be reassigned/updated but not re-declared within its scope.
+Case 1 - Reassigned: 
 
     ```
     let greeting = "say Hi";
@@ -127,10 +128,10 @@ Variables declared with the const maintain constant values. const declarations s
 ### 1. const declarations are block scoped
 Like let declarations, const declarations can only be accessed within the block they were declared.
 
-### 2. const cannot be updated or re-declared
+### 2. const cannot be reassigned/updated or re-declared
 This means that the value of a variable declared with const remains the same within its scope. It cannot be updated or re-declared. 
 
-Case 1 - Updated: 
+Case 1 - Reassigned: 
 
     ```
     const greeting = "say Hi";
@@ -178,10 +179,20 @@ Just like let, const declarations are hoisted to the top but are not initialized
  console.log(greeting) // Uncaught ReferenceError: greeting is not defined
  const greeting;
 ```
+# Summary
+
+## Table of Differences
+
+|                                     | **Var**                                                         | **Let**                                                    | **Const**                                                  |
+|-------------------------------------|-----------------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|
+| **Scope**                           | global or function scoped                                       | block scope                                                | block scoped                                               |
+| **Hoisting**                        | hoisted to the top of their scope andinitialized with undefined | hoisted to the top of their scope but  are not initialized | hoisted to the top of their scope but are not initialized  |
+| **Redeclaration within Scope**      | Yes                                                             | No                                                         | No                                                         |
+| **Reassigned(Update) within Scope** | Yes                                                             | Yes                                                        | No                                                         |
 
 
-
-    
+## Takeaways: 
+- In general const should always be used unless there is a need to change the value of the variable (i.e. the index of a loop). In any other situation let should be used. It’s always best practice to initialize your variables when they are declared.    
     
     
 
