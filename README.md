@@ -186,7 +186,7 @@ Just like let, const declarations are hoisted to the top but are not initialized
 |                                     | **Var**                                                         | **Let**                                                    | **Const**                                                  |
 |-------------------------------------|-----------------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|
 | **Scope**                           | global or function scoped                                       | block scope                                                | block scoped                                               |
-| **Hoisting**                        | hoisted to the top of their scope andinitialized with undefined | hoisted to the top of their scope but  are not initialized | hoisted to the top of their scope but are not initialized  |
+| **Hoisting**                        | hoisted to the top of their scope and initialized with undefined | hoisted to the top of their scope but  are not initialized | hoisted to the top of their scope but are not initialized  |
 | **Redeclaration within Scope**      | Yes                                                             | No                                                         | No                                                         |
 | **Reassigned(Update) within Scope** | Yes                                                             | Yes                                                        | No                                                         |
 
