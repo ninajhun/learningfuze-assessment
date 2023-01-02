@@ -1,17 +1,15 @@
-# ES6 - Move over Var: Let and Const are now in town 
+# ES6 - Let and Const 
+This lesson is a overview of Var, Let, and Const. This material was adpated from the following article: https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/
+
 
 # Overview
- - Let and Const were introduced in ES6 to avoid some common pitfalls of Var declarations. 
-
-Var, Let, and Const vary in the following: 
-1. scope
-2. ability to be redeclared and updated
-3. hoisting
+Let and Const were introduced in ES6 to avoid some common pitfalls of Var declarations. Var, Let, and Const vary in scope, ability to be redeclared and updated, and hoisting. This lesson goes over these differences. 
 
 ## 1: A Review of Var 
 
 ### What is Scope? 
 
+- The scope is the current context of execution in which values and expressions are "visible" or can be referenced. ([MDN](https://developer.mozilla.org/en-US/docs/Glossary/Scope))
 - Simply put, Scope means <b> where a variable can be called for use in the code. </b> 
 
 ### 1. Var is Global and function/locally scoped
@@ -65,7 +63,7 @@ console.log(greeting) // undefined
 var greeting;
 ```
 
-So var variables are hoisted to the top of their scope and initialized with a value of `undefined`.
+The var variables are hoisted to the top of their scope and initialized with a value of `undefined`.
 
 ## Let
 
@@ -84,6 +82,7 @@ Example:
         let greeting = "say Hello instead";
         console.log(greeting);// "say Hello instead"
     }
+   console.log(text) // "say Hi" 
    console.log(greeting) // Uncaught ReferenceError: greeting is not defined
 ```   
 -  Question: Why does `Uncaught ReferenceError: greeting is not defined` occur? 
@@ -103,8 +102,7 @@ Case 2 - Redeclared:
     let greeting = "say Hello instead"; // error: Identifier 'greeting' has already been declared
     ```
 
-However, if the same variable is defined in different scopes, there will be no error:
-
+Question: that will the output of the following be? 
     ```
     let greeting = "say Hi";
     if (true) {
@@ -145,9 +143,7 @@ Case 2 - Redeclared:
     const greeting = "say Hello instead";// error: Identifier 'greeting' has already been declared
     ```
     
-### 3. Every const declaration must be initialized at the time of declaration and cannot be changed/updated. 
-
-- <i>However, you CAN update the objects/arrays that are assigned to a const variable.</i>
+#### <i>However, you CAN update the objects/arrays that are assigned to a const variable.</i>
 
 Example 1: Updating an Object's Properties 
 ```
@@ -171,6 +167,10 @@ This works:
  greeting.message: "Hi LFZ"
 ```
 
+### 3. Every const declaration must be initialized at the time of declaration.
+```
+const test // Uncaught SyntaxError: Missing initializer in const declaration
+```
 
 ### 4. Hoisting of const
 Just like let, const declarations are hoisted to the top but are not initialized.
