@@ -1,5 +1,13 @@
 # ES6 - Move over Var: Let and Const are now in town 
 
+# Overview
+ - Let and Const were introduced in ES6 to avoid some common pitfalls of Var declarations. 
+
+Var, Let, and Const vary in the following: 
+1. scope
+2. ability to be redeclared and updated
+3. hoisting
+
 ## 1: A Review of Var 
 
 ### What is Scope? 
@@ -21,20 +29,20 @@
 
 #### Example 2: 
     ```
-    var text = "hey hi"; 
-
-    function newFunction() {
+     var text = "hey hi"; 
+    
+     function newFunction() {
         var greeting = "hello"; 
         }
         
-    console.log(text); // "hey hi"
-    console.log(greeting); // Uncaught ReferenceError: greeting is not defined
+     console.log(text); // "hey hi"
+     console.log(greeting); // Uncaught ReferenceError: greeting is not defined
     ```
     
--  Question: Why does `error: hello is not defined` occur? 
+-  Question: Why does `Uncaught ReferenceError: greeting is not defined` occur? 
 
 
-### 2. var variables can be re-declared and updated in the same scope 
+### 2. var variables can be re-declared and updated within its scope 
 Case 1 - Redeclared: 
   ``` 
   var text = "hey hi";
@@ -52,9 +60,8 @@ Case 2 - Updated:
 Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. This means that if we do this:
 
 ```
-var greeter;  
-console.log(greeter); // greeter is undefined
-greeter = "say hello"
+console.log(greeting) // undefined
+var greeting;
 ```
 
 So var variables are hoisted to the top of their scope and initialized with a value of `undefined`.
@@ -71,23 +78,25 @@ Example:
 ```
    let text = "say Hi";
    let number = 4;
-
+ 
    if (number > 3) {
         let greeting = "say Hello instead";
         console.log(greeting);// "say Hello instead"
     }
    console.log(greeting) // Uncaught ReferenceError: greeting is not defined
 ```   
-We see that using hello outside its block (the curly braces where it was defined) returns an error. This is because let variables are block scoped .
+-  Question: Why does `Uncaught ReferenceError: greeting is not defined` occur? 
 
-### 2. let can be updated but not re-declared.
-Just like var,  a variable declared with let can be updated within its scope. Unlike var, a let variable cannot be re-declared within its scope. So while this will work:
+### 2. let can be updated but not re-declared within its scope.
+Case 1 - Updated: 
+
     ```
     let greeting = "say Hi";
     greeting = "say Hello instead";
     ```
     
-this will return an error:
+Case 2 - Redeclared: 
+
     ```
     let greeting = "say Hi";
     let greeting = "say Hello instead"; // error: Identifier 'greeting' has already been declared
@@ -103,10 +112,16 @@ However, if the same variable is defined in different scopes, there will be no e
     }
     console.log(greeting); // "say Hi"
     ```    
-- Question: Why is ther. e no error? 
 
 ### 3. Hoisting of let
-Just like  var, let declarations are hoisted to the top. Unlike var which is initialized as undefined, the let keyword is not initialized. So if you try to use a let variable before declaration, you'll get a Reference Error.
+- Just like  var, let declarations are hoisted to the top. Howwver, the let keyword is not initialized. So if you try to use a let variable before declaration, you'll get a Reference Error.
+
+```
+ console.log(greeting) // Uncaught ReferenceError: greeting is not defined
+ let greeting;
+```
+
+
 
     
     
