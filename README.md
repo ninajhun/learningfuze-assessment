@@ -111,7 +111,7 @@ if (true) {
 }
 console.log(greeting); // ?? 
 ```    
-- <b>Question 3: that will the output of these above two `console.log`?</b>
+- <b>Question 3: What will be the output of these two `console.log`? </b>
 
 ### 3. Hoisting of let
 - Just like  var, let declarations are hoisted to the top. However, the let keyword is not initialized. So if you try to use a let variable before declaration, you'll get a Reference Error.
@@ -166,6 +166,23 @@ This works:
 ```
  greeting.message: "Hi LFZ"
 ```
+
+Example 1: Updating an Array's 
+```
+    const numbers = [1 , 2 , 3]
+```
+
+This does NOT work:
+``` 
+    numbers = [4, 5, 6]
+    } // error:  Assignment to constant variable.
+```
+
+This works: 
+```
+ numbers.push(4)
+```
+- <b>Question 4: Why is it possible to update an property on a const variable that points to an Object or to `.push()` a new value into a const variable that points to an Array?</b>
 
 ### 3. Every const declaration must be initialized at the time of declaration.
 ```
