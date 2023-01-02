@@ -5,7 +5,7 @@ This lesson is a overview of Var, Let, and Const. This material was adpated from
 # Overview
 Let and Const were introduced in ES6 to avoid some common pitfalls of Var declarations. Var, Let, and Const vary in scope, ability to be redeclared and updated, and hoisting. This lesson goes over these differences. 
 
-## 1: A Review of Var 
+## A Review of Var 
 
 ### What is Scope? 
 
@@ -17,36 +17,36 @@ Let and Const were introduced in ES6 to avoid some common pitfalls of Var declar
 - var is function scoped when it is declared within a function. This means that it is available and can be accessed only within that function.
 
 #### Example 1:  
-    ```
-    var text = "hey hi"; // text is globally scoped
-    
-    function newFunction() {
-        var greeting = "hello"; // greeting is function scoped
-    }
-    ```
+```
+var text = "hey hi"; // text is globally scoped
+
+function newFunction() {
+    var greeting = "hello"; // greeting is function scoped
+}
+```
 
 #### Example 2: 
-    ```
-     var text = "hey hi"; 
+```
+ var text = "hey hi"; 
+
+ function newFunction() {
+    var greeting = "hello"; 
+    }
+
+ console.log(text); // "hey hi"
+ console.log(greeting); // Uncaught ReferenceError: greeting is not defined
+```
     
-     function newFunction() {
-        var greeting = "hello"; 
-        }
-        
-     console.log(text); // "hey hi"
-     console.log(greeting); // Uncaught ReferenceError: greeting is not defined
-    ```
-    
--  Question: Why does `Uncaught ReferenceError: greeting is not defined` occur? 
+-  <b>Question 1: Why does `Uncaught ReferenceError: greeting is not defined` occur?</b> 
 
 
 ### 2. var variables can be reassigned/updated and redeclared within its scope 
-Case 2 - Reassigned:
+Case 1 - Reassigned:
   ```
   var text = "hey hi";
   text = "say Hello instead";
   ```
-Case 1 - Redeclared: 
+Case 2 - Redeclared: 
   ``` 
   var text = "hey hi";
   var text = "say Hello instead";
@@ -85,32 +85,33 @@ Example:
    console.log(text) // "say Hi" 
    console.log(greeting) // Uncaught ReferenceError: greeting is not defined
 ```   
--  Question: Why does `Uncaught ReferenceError: greeting is not defined` occur? 
+-  <b>Question 2: Why does `Uncaught ReferenceError: greeting is not defined` occur?</b>
 
 ### 2. let can be reassigned/updated but not re-declared within its scope.
 Case 1 - Reassigned: 
 
-    ```
-    let greeting = "say Hi";
-    greeting = "say Hello instead";
-    ```
+```
+let greeting = "say Hi";
+greeting = "say Hello instead";
+```
     
 Case 2 - Redeclared: 
 
-    ```
-    let greeting = "say Hi";
-    let greeting = "say Hello instead"; // error: Identifier 'greeting' has already been declared
-    ```
+```
+let greeting = "say Hi";
+let greeting = "say Hello instead"; // error: Identifier 'greeting' has already been declared
+```
 
-Question: that will the output of the following be? 
-    ```
-    let greeting = "say Hi";
-    if (true) {
-        let greeting = "say Hello instead";
-        console.log(greeting); // "say Hello instead"
-    }
-    console.log(greeting); // "say Hi"
-    ```    
+Example:
+```
+let greeting = "say Hi";
+if (true) {
+    let greeting = "say Hello instead";
+    console.log(greeting); // ??
+}
+console.log(greeting); // ?? 
+```    
+- <b>Question 3: that will the output of these above two `console.log`?</b>
 
 ### 3. Hoisting of let
 - Just like  var, let declarations are hoisted to the top. However, the let keyword is not initialized. So if you try to use a let variable before declaration, you'll get a Reference Error.
@@ -131,23 +132,22 @@ This means that the value of a variable declared with const remains the same wit
 
 Case 1 - Reassigned: 
 
-    ```
-    const greeting = "say Hi";
-    greeting = "say Hello instead";// error: Assignment to constant variable. 
-    ```
-    
+```
+const greeting = "say Hi";
+greeting = "say Hello instead";// error: Assignment to constant variable. 
+```
+
 Case 2 - Redeclared: 
 
-    ```
-    const greeting = "say Hi";
-    const greeting = "say Hello instead";// error: Identifier 'greeting' has already been declared
-    ```
+```
+const greeting = "say Hi";
+const greeting = "say Hello instead";// error: Identifier 'greeting' has already been declared
+```
     
 #### <i>However, you CAN update the objects/arrays that are assigned to a const variable.</i>
 
 Example 1: Updating an Object's Properties 
 ```
-
     const greeting = {
         message: "Hello World",
         times: 4
@@ -191,9 +191,6 @@ Just like let, const declarations are hoisted to the top but are not initialized
 | **Reassigned(Update) within Scope** | Yes                                                             | Yes                                                        | No                                                         |
 
 
-## Takeaways: 
-- In general const should always be used unless there is a need to change the value of the variable (i.e. the index of a loop). In any other situation let should be used. It’s always best practice to initialize your variables when they are declared.    
-    
     
 
 
