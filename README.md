@@ -26,23 +26,24 @@
     function newFunction() {
         var greeting = "hello"; 
         }
-        console.log(text); // "hey hi"
-        console.log(greeting); // Uncaught ReferenceError: greeting is not defined
+        
+    console.log(text); // "hey hi"
+    console.log(greeting); // Uncaught ReferenceError: greeting is not defined
     ```
     
 -  Question: Why does `error: hello is not defined` occur? 
 
 
 ### 2. var variables can be re-declared and updated in the same scope 
-Case 1: 
+Case 1 - Redeclared: 
   ``` 
-  var greeter = "hey hi";
-  var greeter = "say Hello instead";
+  var text = "hey hi";
+  var text = "say Hello instead";
   ```
-Case 2:
+Case 2 - Updated:
   ```
-  var greeter = "hey hi";
-  greeter = "say Hello instead";
+  var text = "hey hi";
+  text = "say Hello instead";
   ```
   
 ### 3. Hoisting of var
@@ -51,29 +52,31 @@ Case 2:
 Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. This means that if we do this:
 
 ```
-var greeter;
+var greeter;  
 console.log(greeter); // greeter is undefined
 greeter = "say hello"
 ```
 
 So var variables are hoisted to the top of their scope and initialized with a value of `undefined`.
 
-## 1. Let is block scoped
-### What is a block? 
-A block is a chunk of code bounded by {} aka Anything within curly braces is a block.
+## Let
+
+### 1. Let is block scoped
+#### What is a block? 
+A block is a chunk of code bounded by {} (and aka anything within curly braces is a block).
 
 So a variable declared in a block with let is only available for use within that block. 
 
 Example: 
 ```
-   let greeting = "say Hi";
-   let times = 4;
+   let text = "say Hi";
+   let number = 4;
 
-   if (times > 3) {
-        let hello = "say Hello instead";
-        console.log(hello);// "say Hello instead"
+   if (number > 3) {
+        let greeting = "say Hello instead";
+        console.log(greeting);// "say Hello instead"
     }
-   console.log(hello) // hello is not defined
+   console.log(greeting) // Uncaught ReferenceError: greeting is not defined
 ```   
 We see that using hello outside its block (the curly braces where it was defined) returns an error. This is because let variables are block scoped .
 
@@ -102,7 +105,7 @@ However, if the same variable is defined in different scopes, there will be no e
     ```    
 - Question: Why is ther. e no error? 
 
-### 3Hoisting of let
+### 3. Hoisting of let
 Just like  var, let declarations are hoisted to the top. Unlike var which is initialized as undefined, the let keyword is not initialized. So if you try to use a let variable before declaration, you'll get a Reference Error.
 
     
