@@ -3,7 +3,7 @@
    -  Greeting is not in the global scope where this console.log is being called. Greeting has function scope and can only be used within the function it was initialized in. 
 
 **2. Why does Uncaught ReferenceError: greeting is not defined occur?** (Let)
--  Greeting is not in the global scope where this console.log is being called. Greeting has block scope and can only be used within the function it was initialized in. 
+-  Greeting is not in the global scope where this console.log is being called. Greeting has block scope and can only be used within the block it was initialized in. 
 
 **3.  What will be the output of these two console.log?**
 -  “say Hello instead”, "say Hi"
