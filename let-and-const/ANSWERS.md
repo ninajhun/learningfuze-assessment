@@ -21,3 +21,12 @@ const array = ["hi", "hello", "hey", "bye"];
     console.log(message);
  }
 ```
+
+## Table of Differences
+
+|                                     | **Var**                                                         | **Let**                                                    | **Const**                                                  |
+|-------------------------------------|-----------------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|
+| **Scope**                           | global or function scoped                                       | block scope                                                | block scoped                                               |
+| **Hoisting**                        | hoisted to the top of their scope and initialized with undefined | hoisted to the top of their scope but  are not initialized | hoisted to the top of their scope but are not initialized  |
+| **Redeclaration within Scope**      | Yes                                                             | No                                                         | No                                                         |
+| **Reassigned(Update) within Scope** | Yes                                                             | Yes                                                        | No                                                         |
