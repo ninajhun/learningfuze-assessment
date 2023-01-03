@@ -69,7 +69,7 @@ The var variables are hoisted to the top of their scope and initialized with a v
 
 ### 1. Let is block scoped
 #### What is a block? 
-A block is a chunk of code bounded by {} (and aka anything within curly braces is a block).
+A block is a chunk of code bounded by {} (aka anything within curly braces is a block).
 
 So a variable declared in a block with let is only available for use within that block. 
 
