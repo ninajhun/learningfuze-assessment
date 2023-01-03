@@ -111,7 +111,7 @@ if (true) {
 }
 console.log(greeting); // ?? 
 ```    
-- Question 3: What will be the output of these two `console.log`? </b>
+- **Question 3: What will be the output of these two `console.log`?**
 
 ### 3. Hoisting of let
 - Just like  var, let declarations are hoisted to the top. However, the let keyword is not initialized. So if you try to use a let variable before declaration, you'll get a Reference Error.
@@ -146,7 +146,7 @@ const greeting = "say Hello instead";// error: Identifier 'greeting' has already
     
 #### *However, you CAN update the objects/arrays that are assigned to a const variable.*
 
-Example 1: Updating an Object's Properties 
+**Case 1:** Updating an Object's Properties 
 ```
     const greeting = {
         message: "Hello World",
@@ -167,7 +167,7 @@ This works:
  greeting.message: "Hi LFZ"
 ```
 
-Example 1: Updating an Array's 
+**Case 2:** Updating an Array 
 ```
     const numbers = [1 , 2 , 3]
 ```
